@@ -1,0 +1,1 @@
+#This file is were all of the validations will go for the program. 

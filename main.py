@@ -1,5 +1,10 @@
 #This is the main file for the program. 
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt
+from datetime import datetime
 
+#This function is what will launch the entire program.
 def main():
         print("-------------------------------------------------")
         print("------Welcome to HealthCare Cost Information-----")
@@ -9,3 +14,5 @@ def main():
 
 def main_menu():
     print("1. ")
+
+main()
