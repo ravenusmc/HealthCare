@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 #I may want to have show the user what type of medical conditions that come up with what they want because 
 #there many matches may come up. Thus the user will be presented with a list based on what they typed in 
 #Which will further be refined. 
+#May want to sort data by lowest to higher or just show them the highest value?
 #Then I will take those two pieces of information and show them locations near them. 
 
 
