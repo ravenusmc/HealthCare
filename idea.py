@@ -13,12 +13,11 @@ import matplotlib.pyplot as plt
 #Then I will take those two pieces of information and show them locations near them. 
 
 
-
 # health_data = pd.read_csv("inpatientCharges.csv")
 # print(health_data.head())
 
 
 
-#TO read from the codes file.
+##### TO read from the codes file.
 # codes = pd.read_table("codes.csv")
 # print(codes.head())
