@@ -21,7 +21,13 @@ health_data = pd.read_csv("inpatientCharges.csv")
 # print(health_data.head()) 
 
 issue = input("What is your issue: ")
-print((health_data[health_data.DRGDefinition == issue]).contains)
+print((health_data[health_data.DRGDefinition.str.contains(issue)]))
+
+#Seeing if something contains a particular value:
+#print(orders.item_name.str.contains('Chicken'))
+#To see the rows that only contain chicken:
+#print(orders[orders.item_name.str.contains('Chicken')])
+
 
 
 #My current issue is that I need to select a specific value within the DRGDefinition instead of the whole line.
