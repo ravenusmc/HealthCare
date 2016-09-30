@@ -15,9 +15,10 @@ import matplotlib.pyplot as plt
 #Then I will take those two pieces of information and show them locations near them. 
 
 #CHECKING DATA TYPES: 
-#print(health_data['AverageCoveredCharges'].dtype)
+#print(health_data['AverageTotalPayments'].dtype)
 
 health_data = pd.read_csv("inpatientCharges.csv")
+#print(health_data['AverageTotalPayments'].dtype)
 # print(health_data.head()) 
 
 state = input("What is your state: ")
@@ -25,7 +26,28 @@ state = input("What is your state: ")
 issue = input("What is your issue: ")
 
 state_data = health_data[(health_data.ProviderState == state)]
-print(state_data[state_data.DRGDefinition.str.contains(issue.upper())])
+issue_data = state_data[state_data.DRGDefinition.str.contains(issue.upper())]
+
+test = issue_data[issue_data.AverageTotalPayments.str.extract(r'.*?(\d+\.*\d*)', expand=False).astype(float) >= 25000]
+print(test)
+
+#issue_data = issue_data[['AverageTotalPayments']].astype(float)
+# issue_data = issue_data['AverageTotalPayments'].str.replace('$', '').astype(float)
+# print(issue_data)
+
+# cost = issue_data[(issue_data.AverageTotalPayments >= 1000)]
+# print(cost)
+
+
+
+
+
+# cost = issue_data[(issue_data.AverageTotalPayments > str(1000))]
+# print( cost )
+
+#My problem is that my dollar columns have a $ in them. Thus, I am not able to make comparisons between a value that 
+#I want and the value in the dataframe. 
+
 
 
 
