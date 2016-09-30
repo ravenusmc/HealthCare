@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 #First goal: Make a function that tells the user the lowest cost by zip code
 
 #Will need to ask the person for their STATE -DONE
-#Will need to ask the person for their medical condition
+#Will need to ask the person for their medical condition -DONE
 #I may want to have show the user what type of medical conditions that come up with what they want because 
 #there many matches may come up. Thus the user will be presented with a list based on what they typed in 
 #Which will further be refined. 
@@ -23,12 +23,10 @@ health_data = pd.read_csv("inpatientCharges.csv")
 state = input("What is your state: ")
 
 issue = input("What is your issue: ")
-#print((health_data[health_data.DRGDefinition.str.contains(issue.upper())]))
-test = (health_data[health_data.DRGDefinition.str.contains(issue.upper())])
 
-#print(health_data[(health_data.ProviderState == state) & (health_data[health_data.DRGDefinition.str.contains(issue.upper())]))
-print(health_data[(health_data.ProviderState == state) & (health_data[health_data.DRGDefinition.str.contains(issue.upper())]                ])
-#print(movies[(movies.duration > 200) & (movies.genre == 'Drama')])
+state_data = health_data[(health_data.ProviderState == state)]
+print(state_data[state_data.DRGDefinition.str.contains(issue.upper())])
+
 
 
 
@@ -45,6 +43,11 @@ print(health_data[(health_data.ProviderState == state) & (health_data[health_dat
 #print((health_data["AverageCoveredCharges"] >= "1"), ["AverageCoveredCharges"] )
 
 
+#print((health_data[health_data.DRGDefinition.str.contains(issue.upper())]))
+#test = (health_data[health_data.DRGDefinition.str.contains(issue.upper())])
+
+#print(health_data[(health_data.ProviderState == state)])
+#print(health_data[(health_data.ProviderState == state) & (health_data[health_data.DRGDefinition.str.contains(issue.upper())])
 
 
 
