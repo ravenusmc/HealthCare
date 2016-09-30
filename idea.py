@@ -20,19 +20,22 @@ import matplotlib.pyplot as plt
 health_data = pd.read_csv("inpatientCharges.csv")
 # print(health_data.head()) 
 
-issue = input("What is your issue: ")
-print((health_data[health_data.DRGDefinition.str.contains(issue)]))
+state = input("What is your state: ")
 
-#Seeing if something contains a particular value:
-#print(orders.item_name.str.contains('Chicken'))
-#To see the rows that only contain chicken:
-#print(orders[orders.item_name.str.contains('Chicken')])
+issue = input("What is your issue: ")
+#print((health_data[health_data.DRGDefinition.str.contains(issue.upper())]))
+test = (health_data[health_data.DRGDefinition.str.contains(issue.upper())])
+
+#print(health_data[(health_data.ProviderState == state) & (health_data[health_data.DRGDefinition.str.contains(issue.upper())]))
+print(health_data[(health_data.ProviderState == state) & (health_data[health_data.DRGDefinition.str.contains(issue.upper())]                ])
+#print(movies[(movies.duration > 200) & (movies.genre == 'Drama')])
+
 
 
 
 #My current issue is that I need to select a specific value within the DRGDefinition instead of the whole line.
 #These two lines work! 
-#state = input("What is your state: ")
+
 # issue = input("What is your issue: ")
 #print((health_data[(health_data.ProviderState == state) & (health_data.DRGDefinition == "039 - EXTRACRANIAL PROCEDURES W/O CC/MCC")]))
 
@@ -44,18 +47,16 @@ print((health_data[health_data.DRGDefinition.str.contains(issue)]))
 
 
 
+
+
 #print(movies[(movies.duration > 200) & (movies.genre == 'Drama')])
 #Using or
 #print(movies[(movies.duration > 200) | (movies.genre == 'Drama')])
 
-
-
-
-
-
-
-
-
+#Seeing if something contains a particular value:
+#print(orders.item_name.str.contains('Chicken'))
+#To see the rows that only contain chicken:
+#print(orders[orders.item_name.str.contains('Chicken')])
 
 
 
