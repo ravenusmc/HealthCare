@@ -13,7 +13,7 @@ def main():
     print("------Welcome to HealthCare Cost Information-----")
     print("Our Goal is to help you find cost effective care!")
     print("-------------------------------------------------")
-    input("Press Enter for the main menu")
+    input("Press Enter for the main menu ")
     main_menu()
 
 #This function provides the main menu to the program. 
@@ -32,15 +32,14 @@ def cheapestCost():
     print("\033c")
     state = input("What is your state: ")
     issue = input("What is your issue: ")
+    cost = int(input("What is the cost that you are looking for: "))
     state_data = health_data[(health_data.ProviderState == state)]
     issue_data = state_data[state_data.DRGDefinition.str.contains(issue.upper())]
-    matches = issue_data[issue_data.AverageTotalPayments.str.extract(r'.*?(\d+\.*\d*)', expand=False).astype(float) >= 25000]
+    matches = issue_data[issue_data.AverageTotalPayments.str.extract(r'.*?(\d+\.*\d*)', expand=False).astype(float) <= cost]
     print("Here are the matches for your criteria: ")
     print(matches)
 
     quit_main_menu()
-
-
 
 ### Functions that are not critical to the running of the program:
 
@@ -52,9 +51,9 @@ def quit_main_menu():
     while not quit_main_menu_valid(selection):
         print("That selection is not valid!")
         selection = int(input("What is your choice: "))
-    if choice == 1:
+    if selection == 1:
         main_menu()
-    elif choice == 2:
+    elif selection == 2:
         print("Sorry to see you leave!")
         print("Please come again!")
 
