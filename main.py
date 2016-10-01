@@ -28,7 +28,16 @@ def main_menu():
         cheapestCost()
 
 def cheapestCost():
+    health_data = pd.read_csv("inpatientCharges.csv")
     print("\033c")
+    state = input("What is your state: ")
+    issue = input("What is your issue: ")
+    state_data = health_data[(health_data.ProviderState == state)]
+    issue_data = state_data[state_data.DRGDefinition.str.contains(issue.upper())]
+    matches = issue_data[issue_data.AverageTotalPayments.str.extract(r'.*?(\d+\.*\d*)', expand=False).astype(float) >= 25000]
+    print("Here are the matches for your criteria: ")
+    print(matches)
+
     quit_main_menu()
 
 
